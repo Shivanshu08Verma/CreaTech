@@ -167,7 +167,7 @@ export default function CPEC_Dashboard() {
   }, []);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:8000/ws/telemetry");
+    const ws = new WebSocket("wss://https://createch-ru18.onrender.com/ws/telemetry");
     ws.onmessage = (event) => { try { setTelemetry(JSON.parse(event.data)); } catch {} };
     ws.onerror = () => addLog("CRITICAL: Backend Offline.", "warn");
     return () => ws.close();
@@ -186,7 +186,7 @@ export default function CPEC_Dashboard() {
 
   useEffect(() => { logEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [logs]);
 
-  const apiCall = async (endpoint: string) => { try { await fetch(`http://localhost:8000/api/${endpoint}`, { method: "POST" }); } catch {} };
+  const apiCall = async (endpoint: string) => { try { await fetch(`https://createch-ru18.onrender.com/api/${endpoint}`, { method: "POST" }); } catch {} };
 
   const canSimulate = telemetry.status === "NOMINAL" || telemetry.status === "RESOLVED";
   const isFault = telemetry.status === "FAULT" || telemetry.status === "HURRICANE";
