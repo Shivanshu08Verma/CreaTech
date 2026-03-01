@@ -44,11 +44,11 @@ pip install -r requirements.txt
 # Start the server
 uvicorn main:app --reload
 The backend will now be running on http://localhost:8000
+```
 
-2. Start the Next.js Frontend
+### 2. Start the Next.js Frontend
 Open a second terminal, navigate to the frontend folder, and run:
-
-Bash
+```bash
 cd ac3des-frontend
 
 # Install Node modules
@@ -57,8 +57,9 @@ npm install
 # Start the development server
 npm run dev
 The frontend will now be running on http://localhost:3000
+```
 
-🌐 Deployment
+### 🌐 Deployment
 This project is built to be easily deployed to modern cloud infrastructure:
 
 Backend: Ready to be deployed as a Web Service on platforms like Render or Heroku.
