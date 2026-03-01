@@ -167,7 +167,7 @@ export default function CPEC_Dashboard() {
   }, []);
 
   useEffect(() => {
-    const ws = new WebSocket("wss://https://createch-ru18.onrender.com/ws/telemetry");
+    const ws = new WebSocket("wss://createch-ru18.onrender.com/ws/telemetry");
     ws.onmessage = (event) => { try { setTelemetry(JSON.parse(event.data)); } catch {} };
     ws.onerror = () => addLog("CRITICAL: Backend Offline.", "warn");
     return () => ws.close();
